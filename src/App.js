@@ -1,22 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { toastToShow, ToastRefContainer } from '@tsishchanka/edu/dist';
 
 function App() {
+  const handleClick = () => {
+    toastToShow.addToast({
+      type: 'error',
+      title: 'Error',
+      position: 'top-left',
+      autoDelete: 'false',
+      deleteDelay: '2000',
+      bgColor: 'red',
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <button onClick={handleClick}>SHOW</button>
+        <ToastRefContainer
+          type='warning'
+          title='Info'
+          position='top-left'
+          autoDelete={false}
+          deleteDelay={2000}
+          bgColor='#F4E048'
+          description='Info description'
+          icon='info'
+        />
       </header>
     </div>
   );
